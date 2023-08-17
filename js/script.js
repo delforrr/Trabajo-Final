@@ -73,7 +73,67 @@ window.addEventListener("load", () => {
 
 // DISPLAY CALENDARIO
 
+const calendarBody = document.getElementById("calendar-body");
+const currentMonthYearElement = document.getElementById("current-month-year");
 
+function generateCalendar() {
+  const today = new Date();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const currentMonthName = months[currentMonth];
+
+  // Display the month and year in the h5 element
+  currentMonthYearElement.textContent = `${currentMonthName} (${currentYear})`;
+
+  // Clear the previous calendar content
+  calendarBody.innerHTML = "";
+
+  // Generate the calendar
+  let date = 1;
+  for (let row = 0; row < 6; row++) {
+    const newRow = document.createElement("tr");
+    for (let col = 0; col < 7; col++) {
+      const newCell = document.createElement("td");
+      if (row === 0 && col < firstDayOfMonth) {
+        newCell.textContent = "";
+      } else if (date > daysInMonth) {
+        break;
+      } else {
+        newCell.textContent = date;
+        if (
+          date === today.getDate() &&
+          currentMonth === today.getMonth() &&
+          currentYear === today.getFullYear()
+        ) {
+          newCell.classList.add("today");
+        }
+        date++;
+      }
+      newRow.appendChild(newCell);
+    }
+    calendarBody.appendChild(newRow);
+  }
+}
+
+// Initial call to the function to generate the calendar
+generateCalendar();
 
 // Consejos
 
