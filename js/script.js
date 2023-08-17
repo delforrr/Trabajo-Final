@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
 
 // DISPLAY CALENDARIO
 
-const cuerpoCalendario = document.getElementById("cuerpo-calendario");
+const cuerpoCalendario = document.getElementById("calendar-body");
 const elementoMesAñoActual = document.getElementById("mes-año-actual");
 
 function generarCalendario() {
