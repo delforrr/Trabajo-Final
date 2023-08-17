@@ -73,67 +73,7 @@ window.addEventListener("load", () => {
 
 // DISPLAY CALENDARIO
 
-const cuerpoCalendario = document.getElementById("calendar-body");
-const elementoMesAñoActual = document.getElementById("mes-año-actual");
 
-function generarCalendario() {
-  const hoy = new Date();
-  const mesActual = hoy.getMonth();
-  const añoActual = hoy.getFullYear();
-  const diasEnMes = new Date(añoActual, mesActual + 1, 0).getDate();
-  const primerDiaDelMes = new Date(añoActual, mesActual, 1).getDay();
-
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-  const nombreMesActual = meses[mesActual];
-
-  // Mostrar el nombre del mes y el año en el elemento h5
-  elementoMesAñoActual.textContent = `${nombreMesActual} (${añoActual})`;
-
-  // Limpiar el contenido previo del calendario
-  cuerpoCalendario.innerHTML = "";
-
-  // Generar el calendario
-  let fecha = 1;
-  for (let fila = 0; fila < 6; fila++) {
-    const nuevaFila = document.createElement("tr");
-    for (let columna = 0; columna < 7; columna++) {
-      const nuevaCelda = document.createElement("td");
-      if (fila === 0 && columna < primerDiaDelMes) {
-        nuevaCelda.textContent = "";
-      } else if (fecha > diasEnMes) {
-        break;
-      } else {
-        nuevaCelda.textContent = fecha;
-        if (
-          fecha === hoy.getDate() &&
-          mesActual === hoy.getMonth() &&
-          añoActual === hoy.getFullYear()
-        ) {
-          nuevaCelda.classList.add("hoy");
-        }
-        fecha++;
-      }
-      nuevaFila.appendChild(nuevaCelda);
-    }
-    cuerpoCalendario.appendChild(nuevaFila);
-  }
-}
-
-// Llamada inicial a la función para generar el calendario
-generarCalendario();
 
 // Consejos
 
