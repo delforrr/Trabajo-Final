@@ -286,11 +286,8 @@
         <div class="col col-lg">
           <div class="row">
             <div class="col-lg">
-              <section id="calendario-section ">
-                <div
-                  class="accordion accordion-flush fondo mt-5"
-                  id="accordionCalendario"
-                >
+              <section id="calendar-section">
+                <div class="accordion accordion-flush background" id="accordionCalendar">
                   <div class="accordion-item">
                     <div class="accordion-header">
                       <button
@@ -301,7 +298,7 @@
                         aria-expanded="false"
                         aria-controls="flush-collapseCalendar"
                       >
-                        <h4>Calendario [WiP]</h4>
+                        <h4>Calendar [WiP]</h4>
                       </button>
                     </div>
                     <div
@@ -309,23 +306,23 @@
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFlushExample"
                     >
-                      <div class="accordion-body p-0 mt-3">
-                        <div class="calendario">
+                      <div class="accordion-body p-0 pt-3 mt-3">
+                        <div class="calendar">
                           <h5 id="current-month-year"></h5>
-                          <table aria-describedby="calendario-dinámico">
+                          <table aria-describedby="dynamic-calendar" class="table table-bordered">
                             <thead>
                               <tr>
-                                <th>D</th>
-                                <th>L</th>
-                                <th>M</th>
-                                <th>X</th>
-                                <th>J</th>
-                                <th>V</th>
-                                <th>S</th>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
                               </tr>
                             </thead>
                             <tbody id="calendar-body">
-                              <!-- Contenido del calendario -->
+                              <!-- Calendar content -->
                             </tbody>
                           </table>
                         </div>
