@@ -84,18 +84,18 @@ function generateCalendar() {
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Deciembre",
   ];
   const currentMonthName = months[currentMonth];
 
@@ -122,7 +122,7 @@ function generateCalendar() {
           currentMonth === today.getMonth() &&
           currentYear === today.getFullYear()
         ) {
-          newCell.classList.add("today");
+          newCell.classList.add("hoy");
         }
         date++;
       }
