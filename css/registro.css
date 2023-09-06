@@ -16,18 +16,15 @@ body {
   background: #141e30;
   background: -webkit-linear-gradient(to right, #243b55, #141e30);
   background: linear-gradient(to right, #243b55, #141e30);
-}
-
-main {
-  width: 100%;
-  padding: 20px;
-  margin: auto;
-  margin-top: 100px;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .inicio_registro {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   position: relative;
 }
@@ -39,6 +36,7 @@ main {
   justify-content: center;
   backdrop-filter: blur(10px);
   background-color: var(--oscuro);
+  border-radius: 20px;
 }
 
 .apartado div {
@@ -80,10 +78,10 @@ main {
 .formulario_inicio-registro {
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 450px;
   position: relative;
   top: -185px;
-  left: 10px;
+  left: -10px;
   transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 

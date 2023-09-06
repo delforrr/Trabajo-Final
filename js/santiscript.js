@@ -26,7 +26,7 @@ anchoPagina();
 
 function iniciarSesion () 
 {   if(window.innerWidth > 850) { formulario__registro.style.display = "none";
-    formulario_inicio_registro.style.left = "10px";
+    formulario_inicio_registro.style.left = "-10px";
     formulario__inicio.style.display = "block";
     apartado_registro.style.opacity = "1";
     apartado_inicio.style.opacity = "0";} 
@@ -41,7 +41,7 @@ function iniciarSesion ()
 
    function register () 
    { if(window.innerWidth > 850){ formulario__registro.style.display = "block";
-   formulario_inicio_registro.style.left = "410px";
+   formulario_inicio_registro.style.left = "600px";
    formulario__inicio.style.display = "none";
    apartado_registro.style.opacity = "0";
    apartado_inicio.style.opacity = "1";} 
