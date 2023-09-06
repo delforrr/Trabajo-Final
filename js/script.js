@@ -142,6 +142,11 @@ const consejos = {
   2: "¡No te olvides de chequear las demás páginas en la barra de navegación!",
   3: "Recordá que no podés editar las tareas una vez completadas.",
   4: "Proximamente podrás guardar tus tareas cuando recargues la página.",
+  5: "Probá diferentes estrategias para la gestión del tiempo y descubrí el mejor método para vos.",
+  6: "Cuidado! Evita realizar varias tareas a la vez para ver un mejor resultado.",
+  7: "Prioriza el trabajo importante.",
+  8: "Establece objetivos claros y alcanzables en un tiempo razonable.",
+  9: "Dedicarte tiempo a ti mismo ayuda a recargar energías y mantenerte activo.",
 };
 
 function consejoAleatorio() {
