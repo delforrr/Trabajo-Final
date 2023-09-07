@@ -296,4 +296,9 @@ th {
 
 #consejo-texto {
   color: white;
+  margin-top: 20px;
+}
+
+#underline{
+  text-decoration: underline;
 }
