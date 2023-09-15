@@ -57,14 +57,10 @@ window.addEventListener("load", () => {
 
     tarea_borrar_completado_el.addEventListener("click", (e) => {
       if (tarea_borrar_completado_el.innerText.toLowerCase() === "completado") {
-        // Tachamos el contenido en pantalla
         tarea_input_el.style.textDecoration = "line-through";
-        // Cambiamos el botón a "Borrar"
         tarea_borrar_completado_el.innerText = "Borrar";
-        // Ocultamos el botón de "Editar"
         tarea_editar_el.style.display = "none";
       } else {
-        // Si el botón es "Borrar", eliminamos la tarea
         list_el.removeChild(tarea_el);
       }
     });
