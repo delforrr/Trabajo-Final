@@ -128,7 +128,6 @@ function generarCalendario() {
   }
 }
 
-// Initial call to the function to generate the calendar
 generarCalendario();
 
 // Consejos
