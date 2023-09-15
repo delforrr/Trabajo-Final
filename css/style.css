@@ -140,7 +140,7 @@ svg {
 
 /* Main */
 
-#new-task-form {
+#formTareas {
   display: flex;
 }
 
@@ -152,7 +152,7 @@ button {
   background: none;
 }
 
-#new-task-input {
+#inputTareas {
   flex: 1 1 0%;
   background-color: var(--oscuro);
   border-radius: 1rem;
@@ -162,7 +162,7 @@ button {
   overflow-x: scroll;
 }
 
-#new-task-input::placeholder {
+#inputTareas::placeholder {
   color: var(--gris);
 }
 
@@ -192,18 +192,18 @@ main {
   margin: 0 auto;
 }
 
-.task-list {
+.tarea-list {
   padding: 1rem;
 }
 
-.task-list h2 {
+.tarea-list h2 {
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--gris);
   margin-bottom: 1rem;
 }
 
-#tasks .task {
+#tareas .tarea {
   display: flex;
   justify-content: space-between;
   background-color: var(--oscuro);
@@ -212,11 +212,11 @@ main {
   margin-bottom: 1rem;
 }
 
-.task .content {
+.tarea .contenido {
   flex: 1 1 0%;
 }
 
-.task .content .text {
+.tarea .contenido .texto {
   color: var(--gris);
   font-size: 1.125rem;
   width: 100%;
@@ -224,16 +224,16 @@ main {
   transition: 0.4s;
 }
 
-.task .content .text:not(:read-only) {
+.tarea .contenido .texto:not(:read-only) {
   color: var(--celeste);
 }
 
-.task .actions {
+.tarea .acciones {
   display: flex;
   margin: 0 -0.5rem;
 }
 
-.task .actions button {
+.tarea .acciones button {
   cursor: pointer;
   margin: 0 0.5rem;
   font-size: 1.125rem;
@@ -242,22 +242,22 @@ main {
   transition: 0.4s;
 }
 
-.task .actions button:hover {
+.tarea .acciones button:hover {
   opacity: 0.8;
 }
 
-.task .actions button:active {
+.tarea .acciones button:active {
   opacity: 0.6;
 }
 
-.task .actions .editar {
+.tarea .acciones .editar {
   background-color: var(--celeste);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.task .actions .borrar {
+.tarea .acciones .borrar {
   color: rgb(243, 121, 21);
 }
 
@@ -296,4 +296,9 @@ th {
 
 #consejo-texto {
   color: white;
+  margin-top: 20px;
+}
+
+#underline{
+  text-decoration: underline;
 }
