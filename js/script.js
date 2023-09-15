@@ -1,71 +1,71 @@
 window.addEventListener("load", () => {
-  const form = document.querySelector("#new-task-form");
-  const input = document.querySelector("#new-task-input");
-  const list_el = document.querySelector("#tasks");
+  const form = document.querySelector("#formTareas");
+  const input = document.querySelector("#inputTareas");
+  const list_el = document.querySelector("#tareas");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const task = input.value;
+    const tarea = input.value;
 
-    const task_el = document.createElement("div");
-    task_el.classList.add("task");
+    const tarea_el = document.createElement("div");
+    tarea_el.classList.add("tarea");
 
-    const task_content_el = document.createElement("div");
-    task_content_el.classList.add("content");
+    const tarea_content_el = document.createElement("div");
+    tarea_content_el.classList.add("contenido");
 
-    task_el.appendChild(task_content_el);
+    tarea_el.appendChild(tarea_content_el);
 
-    const task_input_el = document.createElement("input");
-    task_input_el.classList.add("text");
-    task_input_el.type = "text";
-    task_input_el.value = task;
-    task_input_el.setAttribute("readonly", "readonly");
+    const tarea_input_el = document.createElement("input");
+    tarea_input_el.classList.add("texto");
+    tarea_input_el.type = "text";
+    tarea_input_el.value = tarea;
+    tarea_input_el.setAttribute("readonly", "readonly");
 
-    task_content_el.appendChild(task_input_el);
+    tarea_content_el.appendChild(tarea_input_el);
 
-    const task_actions_el = document.createElement("div");
-    task_actions_el.classList.add("actions");
+    const tarea_actions_el = document.createElement("div");
+    tarea_actions_el.classList.add("acciones");
 
-    const task_editar_el = document.createElement("button");
-    task_editar_el.classList.add("editar");
-    task_editar_el.innerText = "Editar";
+    const tarea_editar_el = document.createElement("button");
+    tarea_editar_el.classList.add("editar");
+    tarea_editar_el.innerText = "Editar";
 
-    const task_borrar_completado_el = document.createElement("button");
-    task_borrar_completado_el.classList.add("borrar");
-    task_borrar_completado_el.innerText = "Completado";
+    const tarea_borrar_completado_el = document.createElement("button");
+    tarea_borrar_completado_el.classList.add("borrar");
+    tarea_borrar_completado_el.innerText = "Completado";
 
-    task_actions_el.appendChild(task_editar_el);
-    task_actions_el.appendChild(task_borrar_completado_el);
+    tarea_actions_el.appendChild(tarea_editar_el);
+    tarea_actions_el.appendChild(tarea_borrar_completado_el);
 
-    task_el.appendChild(task_actions_el);
+    tarea_el.appendChild(tarea_actions_el);
 
-    list_el.appendChild(task_el);
+    list_el.appendChild(tarea_el);
 
     input.value = "";
 
-    task_editar_el.addEventListener("click", (e) => {
-      if (task_input_el.hasAttribute("readonly")) {
-        task_input_el.removeAttribute("readonly");
-        task_input_el.focus();
-        task_editar_el.innerText = "Guardar";
+    tarea_editar_el.addEventListener("click", (e) => {
+      if (tarea_input_el.hasAttribute("readonly")) {
+        tarea_input_el.removeAttribute("readonly");
+        tarea_input_el.focus();
+        tarea_editar_el.innerText = "Guardar";
       } else {
-        task_input_el.setAttribute("readonly", "readonly");
-        task_editar_el.innerText = "Editar";
+        tarea_input_el.setAttribute("readonly", "readonly");
+        tarea_editar_el.innerText = "Editar";
       }
     });
 
-    task_borrar_completado_el.addEventListener("click", (e) => {
-      if (task_borrar_completado_el.innerText.toLowerCase() === "completado") {
+    tarea_borrar_completado_el.addEventListener("click", (e) => {
+      if (tarea_borrar_completado_el.innerText.toLowerCase() === "completado") {
         // Tachamos el contenido en pantalla
-        task_input_el.style.textDecoration = "line-through";
+        tarea_input_el.style.textDecoration = "line-through";
         // Cambiamos el botón a "Borrar"
-        task_borrar_completado_el.innerText = "Borrar";
+        tarea_borrar_completado_el.innerText = "Borrar";
         // Ocultamos el botón de "Editar"
-        task_editar_el.style.display = "none";
+        tarea_editar_el.style.display = "none";
       } else {
         // Si el botón es "Borrar", eliminamos la tarea
-        list_el.removeChild(task_el);
+        list_el.removeChild(tarea_el);
       }
     });
   });
@@ -74,16 +74,16 @@ window.addEventListener("load", () => {
 // DISPLAY CALENDARIO
 
 const calendarBody = document.getElementById("calendar-body");
-const currentMonthYearElement = document.getElementById("current-month-year");
+const añoMesActualElement = document.getElementById("current-month-year");
 
-function generateCalendar() {
-  const today = new Date();
-  const currentMonth = today.getMonth();
-  const currentYear = today.getFullYear();
-  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+function generarCalendario() {
+  const hoy = new Date();
+  const mesActual = hoy.getMonth();
+  const añoActual = hoy.getFullYear();
+  const diasDelMes = new Date(añoActual, mesActual + 1, 0).getDate();
+  const primerDiaDelMes = new Date(añoActual, mesActual, 1).getDay();
 
-  const months = [
+  const meses = [
     "Enero",
     "Febrero",
     "Marzo",
@@ -95,36 +95,36 @@ function generateCalendar() {
     "Septiembre",
     "Octubre",
     "Noviembre",
-    "Diciembre",
+    "Deciembre",
   ];
-  const currentMonthName = months[currentMonth];
+  const nombreMesActual = meses[mesActual];
 
   // Display the month and year in the h5 element
-  currentMonthYearElement.textContent = `${currentMonthName} (${currentYear})`;
+  añoMesActualElement.textContent = `${nombreMesActual} (${añoActual})`;
 
   // Clear the previous calendar content
   calendarBody.innerHTML = "";
 
   // Generate the calendar
-  let date = 1;
+  let fecha = 1;
   for (let row = 0; row < 6; row++) {
     const newRow = document.createElement("tr");
     for (let col = 0; col < 7; col++) {
       const newCell = document.createElement("td");
-      if (row === 0 && col < firstDayOfMonth) {
+      if (row === 0 && col < primerDiaDelMes) {
         newCell.textContent = "";
-      } else if (date > daysInMonth) {
+      } else if (fecha > diasDelMes) {
         break;
       } else {
-        newCell.textContent = date;
+        newCell.textContent = fecha;
         if (
-          date === today.getDate() &&
-          currentMonth === today.getMonth() &&
-          currentYear === today.getFullYear()
+          fecha === hoy.getDate() &&
+          mesActual === hoy.getMonth() &&
+          añoActual === hoy.getFullYear()
         ) {
           newCell.classList.add("hoy");
         }
-        date++;
+        fecha++;
       }
       newRow.appendChild(newCell);
     }
@@ -133,7 +133,7 @@ function generateCalendar() {
 }
 
 // Initial call to the function to generate the calendar
-generateCalendar();
+generarCalendario();
 
 // Consejos
 
@@ -142,12 +142,17 @@ const consejos = {
   2: "¡No te olvides de chequear las demás páginas en la barra de navegación!",
   3: "Recordá que no podés editar las tareas una vez completadas.",
   4: "Proximamente podrás guardar tus tareas cuando recargues la página.",
+  5: "Probá diferentes estrategias para la gestión del tiempo y descubrí el mejor método para vos.",
+  6: "Cuidado! Evita realizar varias tareas a la vez para ver un mejor resultado.",
+  7: "Prioriza el trabajo importante.",
+  8: "Establece objetivos claros y alcanzables en un tiempo razonable.",
+  9: "Dedicarte tiempo a ti mismo ayuda a recargar energías y mantenerte activo.",
 };
 
 function consejoAleatorio() {
   const consejosKeys = Object.keys(consejos);
   const numeroConsejo =
-    consejosKeys[Math.floor(Math.random() * consejosKeys.length)];
+    consejosKeys[parseInt(Math.random() * consejosKeys.length)];
   const consejo = consejos[numeroConsejo];
 
   document.querySelector("#consejo-numero").textContent = numeroConsejo;
