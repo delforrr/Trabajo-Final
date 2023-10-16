@@ -1,6 +1,6 @@
 :root {
   --oscuro: #111827;
-  --semi-oscuro: #23344d ;
+  --semi-oscuro: #23344d;
   --azul-oscuro: #2f4b6e;
   --azul: #4c86aa;
   --celeste: #4cc2d1;
@@ -30,8 +30,7 @@ section {
   margin: auto;
 }
 
-.col
- {
+.col {
   border-left: 2px solid var(--azul-oscuro);
   border-right: 2px solid var(--azul-oscuro);
   border-bottom: 4px solid var(--azul-oscuro);
@@ -43,11 +42,17 @@ section {
   background-color: #111827;
 }
 
-.nav-link, #campanita {
+.nav-link,
+#campanita {
   border-bottom: 3px ridge transparent;
   float: right;
   border-radius: 0;
   color: white;
+}
+
+#limpiarTareas {
+  float: right;
+  padding-right: .5em;
 }
 
 .nav-link:hover {
@@ -133,9 +138,16 @@ svg {
   color: white;
 }
 
-.alinearTexto, .carpetaIcon {
+.alinearTexto,
+.carpetaIcon {
   display: inline;
   vertical-align: middle;
+}
+
+.carpeta .acciones .borrar,
+  .carpeta .acciones .editar,
+.carpeta .tarea .carpeta-button {
+  display: none;
 }
 
 /* Main */
@@ -164,6 +176,13 @@ button {
 
 #inputTareas::placeholder {
   color: var(--gris);
+}
+
+#inputFecha {
+  color: var(--celeste);
+  font-family: monospace;
+  margin-right: 0.5rem;
+  width: 25px;
 }
 
 .submitButtonGradient {
@@ -250,6 +269,10 @@ main {
   opacity: 0.6;
 }
 
+.carpeta-button {
+  margin-right: 15px;
+}
+
 .tarea .acciones .editar {
   background-color: var(--celeste);
   background-clip: text;
@@ -279,7 +302,7 @@ td {
 }
 
 th {
-  color: var(--azul)
+  color: var(--azul);
 }
 
 .hoy {
@@ -299,6 +322,6 @@ th {
   margin-top: 20px;
 }
 
-#underline{
+#underline {
   text-decoration: underline;
 }
