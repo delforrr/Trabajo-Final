@@ -7,6 +7,12 @@ window.addEventListener("load", () => {
     e.preventDefault();
 
     const tarea = input.value;
+    const iconoEditar =
+      '<img src="./imágenes/edit-2-svgrepo-com.png" height="25">';
+    const iconoBorrar =
+      '<img src="./imágenes/trash-xmark-svgrepo-com.png" height="25">';
+    const iconoCarpeta =
+      '<img src="./imágenes/folder-svgrepo-com.png" height="25">';
 
     const tarea_el = document.createElement("div");
     tarea_el.classList.add("tarea");
@@ -27,13 +33,19 @@ window.addEventListener("load", () => {
     const tarea_actions_el = document.createElement("div");
     tarea_actions_el.classList.add("acciones");
 
+    const tarea_carpeta_el = document.createElement("button");
+    tarea_carpeta_el.classList.add("carpeta-button");
+    tarea_carpeta_el.innerHTML = iconoCarpeta; // Icono de la carpeta
+
+    tarea_el.appendChild(tarea_carpeta_el);
+
     const tarea_editar_el = document.createElement("button");
     tarea_editar_el.classList.add("editar");
-    tarea_editar_el.innerText = "Editar";
+    tarea_editar_el.innerHTML = iconoEditar;
 
     const tarea_borrar_completado_el = document.createElement("button");
     tarea_borrar_completado_el.classList.add("borrar");
-    tarea_borrar_completado_el.innerText = "Completado";
+    tarea_borrar_completado_el.innerHTML = iconoBorrar;
 
     tarea_actions_el.appendChild(tarea_editar_el);
     tarea_actions_el.appendChild(tarea_borrar_completado_el);
@@ -43,6 +55,27 @@ window.addEventListener("load", () => {
     list_el.appendChild(tarea_el);
 
     input.value = "";
+
+    const carpetas = [
+      document.querySelector("#carpeta1"),
+      document.querySelector("#carpeta2"),
+      document.querySelector("#carpeta3"),
+    ];
+
+    tarea_carpeta_el.addEventListener("click", () => {
+      // Al hacer clic en el botón de la carpeta, muestra un menú para seleccionar una carpeta (1, 2 o 3)
+      const opcion = prompt("Selecciona una carpeta (1, 2 o 3):");
+
+      // Verifica que la opción ingresada sea válida (1, 2 o 3)
+      if (opcion === "1" || opcion === "2" || opcion === "3") {
+        const carpeta = carpetas[opcion - 1]; // Obtiene la carpeta correspondiente
+
+        // Mueve la tarea seleccionada hacia la carpeta
+        carpeta.appendChild(tarea_el);
+      } else {
+        alert("Opción inválida. Ingresa 1, 2 o 3.");
+      }
+    });
 
     tarea_editar_el.addEventListener("click", (e) => {
       if (tarea_input_el.hasAttribute("readonly")) {
@@ -56,7 +89,10 @@ window.addEventListener("load", () => {
     });
 
     tarea_borrar_completado_el.addEventListener("click", (e) => {
-      if (tarea_borrar_completado_el.innerText.toLowerCase() === "completado") {
+      if (
+        tarea_borrar_completado_el.innerHTML ===
+        '<img src="./imágenes/trash-xmark-svgrepo-com.png" height="25">'
+      ) {
         tarea_input_el.style.textDecoration = "line-through";
         tarea_borrar_completado_el.innerText = "Borrar";
         tarea_editar_el.style.display = "none";
@@ -64,6 +100,19 @@ window.addEventListener("load", () => {
         list_el.removeChild(tarea_el);
       }
     });
+  });
+});
+
+// Borrar tareas
+
+const botonLimpiarTareas = document.getElementById("limpiarTareas");
+botonLimpiarTareas.addEventListener("click", () => {
+  // Selecciona todas las tareas
+  const tareas = document.querySelectorAll(".tarea");
+
+  // Elimina cada tarea
+  tareas.forEach((tarea) => {
+    tarea.remove();
   });
 });
 
@@ -136,7 +185,7 @@ const consejos = {
   1: "¡Ahora podés dejar tus sugerencias en la sección de contacto!",
   2: "¡No te olvides de chequear las demás páginas en la barra de navegación!",
   3: "Recordá que no podés editar las tareas una vez completadas.",
-  4: "Proximamente podrás guardar tus tareas cuando recargues la página.",
+  // 4: "Proximamente podrás guardar tus tareas cuando recargues la página.",
   5: "Probá diferentes estrategias para la gestión del tiempo y descubrí el mejor método para vos.",
   6: "Cuidado! Evita realizar varias tareas a la vez para ver un mejor resultado.",
   7: "Prioriza el trabajo importante.",
@@ -155,3 +204,28 @@ function consejoAleatorio() {
 }
 
 consejoAleatorio();
+
+// Leer Fechas
+
+// Obtener la fecha seleccionada y el espacio donde van las notifiaciones
+const inputFecha = document.querySelector("#inputFecha");
+const espacioNotificaciones = document.querySelector("#cuerpoNotificaciones");
+const formulario = document.querySelector("#formTareas");
+
+// Funciones
+function verificarFechaLimite() {
+  const fechaSeleccionada = new Date(inputFecha.value);
+  const fechaActual = new Date();
+
+  // Calcular la diferencia
+  const diferenciaDias = Math.floor(
+    (fechaSeleccionada - fechaActual) / (1000 * 60 * 60 * 24) + 1
+  );
+
+  let listItem = document.createElement("li");
+  listItem.classList.add("list-group-item");
+  listItem.innerHTML = `⛔ Tienes ${diferenciaDias} días para terminar una de tus tareas.`;
+}
+
+// Eventos
+formulario.addEventListener("submit", verificarFechaLimite);
