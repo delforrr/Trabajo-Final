@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./css/registro.css" />
+<head>
+    <link rel="stylesheet" href="./style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio/registro</title>
-  </head>
-  <body>
+    <title data-traduccion="titulo">Inicio/registro</title>
+</head>
+<body>
     <main>
-      <div class="inicio_registro">
-        <div class="apartado">
-          <div class="apartado-inicio">
-            <h3>¿Ya tienes una cuenta?</h3>
-            <p>Inicia sesión para entrar a la pagina</p>
-            <button id="boton_iniciar-sesion">Inicia sesión</button>
-          </div>
-          <div class="apartado-registro">
-            <h3>¿Aún no tienes una cuenta?</h3>
-            <p>Regístrate para que puedas iniciar sesión</p>
-            <button id="boton_registro">Registrarse</button>
-          </div>
-        </div>
-        <!--Formularios de inicio de sesión y Registro!-->
-        <div class="formulario_inicio-registro">
-          <!-- Formulario de inicio de sesion -->
-          <form action="" class="formulario_inicio">
-            <h2>Iniciar sesión</h2>
-            <input type="text" placeholder="Correo Electrónico" />
-            <input type="password" placeholder="Contraseña" />
-           <button><a href="./organizador.html">Iniciar sesión</a></button>
-          </form>
-          <!-- Formulario de Registro -->
-          <form action="" class="formulario_registro">
-            <h2>Regístrarse</h2>
-            <input type="text" placeholder="Nombre Completo" />
-            <input type="text" placeholder="Correo Eleectronico" />
-            <input type="text" placeholder="Usuario" />
-            <input type="password" placeholder="Contraseña" />
-            <button><a href="./organizador.html">Crear Cuenta</a></button>
-          </form>
-        </div>
-      </div>
+        <div class="inicio_registro">
+            <div class="apartado">
+                <div class="apartado-inicio">
+                    <h3 data-traduccion="pregunta-cuenta">¿Ya tienes una cuenta?</h3>
+                    <p data-traduccion="inicia-sesion">Inicia sesión para entrar a la página</p>
+                    <button id="boton_iniciar-sesion" data-traduccion="boton-iniciar-sesion">Inicia sesión</button>
+                </div>
+                <div class="apartado-registro">
+                    <h3 data-traduccion="pregunta-registro">¿Aún no tienes una cuenta?</h3>
+                    <p data-traduccion="registra-iniciar">Regístrate para que puedas iniciar sesión</p>
+                    <button id="boton_registro" data-traduccion="boton-registro">Registrarse</button>
+                </div>
+            </div>
+            <!-- Formularios de inicio de sesión y Registro -->
+            <div class="formulario_inicio-registro"> 
+               <!-- Formulario de inicio de sesión -->
+               <form id="incioForm" action="php/login_usuario_be.php" method="POST" class="formulario_inicio">
+                    <h2 data-traduccion="inicio-sesion">Iniciar sesión</h2>
+                    <input type="text" placeholder="Correo Electrónico" name="correo"  required  minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="El correo debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+                       <input type="password" placeholder="Contraseña" name="contrasena" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+
+                    <button  data-traduccion="boton-iniciar-sesion">Iniciar Sesión</button>
+                </form>
+                <!-- Formulario de Registro -->
+                <form id="registroForm" action="php/registro_usuario_be.php" method="POST" class="formulario_registro">
+                    <h2 data-traduccion="registro">Regístrarse</h2>
+                    <input type="text" placeholder="Nombre Completo" name="nombre_completo" required>
+                    <input type="text" placeholder="Correo Electrónico" name="correo" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="El correo debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)." />
+                    <input type="text"  placeholder="Usuario" name="usuario" required minlength="8"/>
+                    <input type="password" id="contrasena" placeholder="Contraseña" name="contrasena" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+                    </div>
+            <img src="./logo/logo.png" alt="" id="logo">
+            <div id="descripcion" data-traduccion="conectate">¡CONÉCTATE!</div>
+
+            <footer>
+                <div id="idiomas">
+                    <button id="ingles">English</button>
+                    <button id="espanol">Español</button>
+                </div>
+                <div id="comentario" data-traduccion="comentario">Página y sistemas de inicio y registro: Sarasúa Santiago</div>
+            <div id="comentario2"  data-traduccion="comentario2">Logo: Faustina Grande</div>
+<div id="comentario3"  data-traduccion="comentario3">Diseño de gama de colores: Delfor Vicondo Grosso y Aaron Chiastellino Gabriel Fernandez</div>            
+            
+            </footer>
+
     </main>
-    <script src="./js/santiscript.js"></script>
-  </body>
-</html>
+
+
+    <script src="./script.js"></script>
+</body>
+</html> 
