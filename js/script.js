@@ -63,14 +63,11 @@ window.addEventListener("load", () => {
     ];
 
     tarea_carpeta_el.addEventListener("click", () => {
-      // Al hacer clic en el botón de la carpeta, muestra un menú para seleccionar una carpeta (1, 2 o 3)
       const opcion = prompt("Selecciona una carpeta (1, 2 o 3):");
 
-      // Verifica que la opción ingresada sea válida (1, 2 o 3)
       if (opcion === "1" || opcion === "2" || opcion === "3") {
-        const carpeta = carpetas[opcion - 1]; // Obtiene la carpeta correspondiente
+        const carpeta = carpetas[opcion - 1];
 
-        // Mueve la tarea seleccionada hacia la carpeta
         carpeta.appendChild(tarea_el);
       } else {
         alert("Opción inválida. Ingresa 1, 2 o 3.");
@@ -81,10 +78,10 @@ window.addEventListener("load", () => {
       if (tarea_input_el.hasAttribute("readonly")) {
         tarea_input_el.removeAttribute("readonly");
         tarea_input_el.focus();
-        tarea_editar_el.innerText = "Guardar";
+        tarea_editar_el.innerHTML = iconoEditar;
       } else {
         tarea_input_el.setAttribute("readonly", "readonly");
-        tarea_editar_el.innerText = "Editar";
+        tarea_editar_el.innerHTML = iconoEditar;
       }
     });
 
@@ -94,7 +91,7 @@ window.addEventListener("load", () => {
         '<img src="./imágenes/trash-xmark-svgrepo-com.png" height="25">'
       ) {
         tarea_input_el.style.textDecoration = "line-through";
-        tarea_borrar_completado_el.innerText = "Borrar";
+        tarea_borrar_completado_el.innerHTML = "Borrar";
         tarea_editar_el.style.display = "none";
       } else {
         list_el.removeChild(tarea_el);
@@ -107,16 +104,14 @@ window.addEventListener("load", () => {
 
 const botonLimpiarTareas = document.getElementById("limpiarTareas");
 botonLimpiarTareas.addEventListener("click", () => {
-  // Selecciona todas las tareas
   const tareas = document.querySelectorAll(".tarea");
 
-  // Elimina cada tarea
   tareas.forEach((tarea) => {
     tarea.remove();
   });
 });
 
-// DISPLAY CALENDARIO
+// Calendario
 
 const calendarBody = document.getElementById("calendar-body");
 const añoMesActualElement = document.getElementById("current-month-year");
@@ -144,13 +139,10 @@ function generarCalendario() {
   ];
   const nombreMesActual = meses[mesActual];
 
-  // Display the month and year in the h5 element
   añoMesActualElement.textContent = `${nombreMesActual} (${añoActual})`;
 
-  // Clear the previous calendar content
   calendarBody.innerHTML = "";
 
-  // Generate the calendar
   let fecha = 1;
   for (let row = 0; row < 6; row++) {
     const newRow = document.createElement("tr");
@@ -185,12 +177,13 @@ const consejos = {
   1: "¡Ahora podés dejar tus sugerencias en la sección de contacto!",
   2: "¡No te olvides de chequear las demás páginas en la barra de navegación!",
   3: "Recordá que no podés editar las tareas una vez completadas.",
-  // 4: "Proximamente podrás guardar tus tareas cuando recargues la página.",
+  4: "¡Podés usar las carpetas para guardar tus tareas rutinarias!",
   5: "Probá diferentes estrategias para la gestión del tiempo y descubrí el mejor método para vos.",
   6: "Cuidado! Evita realizar varias tareas a la vez para ver un mejor resultado.",
   7: "Prioriza el trabajo importante.",
   8: "Establece objetivos claros y alcanzables en un tiempo razonable.",
   9: "Dedicarte tiempo a ti mismo ayuda a recargar energías y mantenerte activo.",
+  10: "¡Cuidado! El botón de limpiar elimina todas las tareas en pantalla.",
 };
 
 function consejoAleatorio() {
@@ -207,7 +200,6 @@ consejoAleatorio();
 
 // Leer Fechas
 
-// Obtener la fecha seleccionada y el espacio donde van las notifiaciones
 const inputFecha = document.querySelector("#inputFecha");
 const espacioNotificaciones = document.querySelector("#cuerpoNotificaciones");
 const formulario = document.querySelector("#formTareas");
@@ -217,7 +209,6 @@ function verificarFechaLimite() {
   const fechaSeleccionada = new Date(inputFecha.value);
   const fechaActual = new Date();
 
-  // Calcular la diferencia
   const diferenciaDias = Math.floor(
     (fechaSeleccionada - fechaActual) / (1000 * 60 * 60 * 24) + 1
   );
