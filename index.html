@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./css/registro.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-traduccion="titulo">Inicio/registro</title>
+</head>
+<body>
+    <main>
+      <a href="organizador.html" style="position: absolute;top: 110px;color: white;font-size: 22px;font-size: 22; text-decoration: underline;">(Click para Vista Previa)</a>
+        <div class="inicio_registro">
+            <div class="apartado">
+                <div class="apartado-inicio">
+                    <h3 data-traduccion="pregunta-cuenta">¿Ya tienes una cuenta?</h3>
+                    <p data-traduccion="inicia-sesion">Inicia sesión para entrar a la página</p>
+                    <button id="boton_iniciar-sesion" data-traduccion="boton-iniciar-sesion">Inicia sesión</button>
+                </div>
+                <div class="apartado-registro">
+                    <h3 data-traduccion="pregunta-registro">¿Aún no tienes una cuenta?</h3>
+                    <p data-traduccion="registra-iniciar">Regístrate para que puedas iniciar sesión</p>
+                    <button id="boton_registro" data-traduccion="boton-registro">Registrarse</button>
+                </div>
+            </div>
+            <!-- Formularios de inicio de sesión y Registro -->
+            <div class="formulario_inicio-registro"> 
+               <!-- Formulario de inicio de sesión -->
+               <form id="incioForm" action="php/login_usuario_be.php" method="POST" class="formulario_inicio">
+                    <h2 data-traduccion="inicio-sesion">Iniciar sesión</h2>
+                    <input type="text" placeholder="Correo Electrónico" name="correo"  required  minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="El correo debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+                       <input type="password" placeholder="Contraseña" name="contrasena" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+
+                    <button  data-traduccion="boton-iniciar-sesion">Iniciar Sesión</button>
+                </form>
+                <!-- Formulario de Registro -->
+                <form id="registroForm" action="php/registro_usuario_be.php" method="POST" class="formulario_registro">
+                    <h2 data-traduccion="registro">Regístrarse</h2>
+                    <input type="text" placeholder="Nombre Completo" name="nombre_completo" required>
+                    <input type="text" placeholder="Correo Electrónico" name="correo" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="El correo debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)." />
+                    <input type="text"  placeholder="Usuario" name="usuario" required minlength="8"/>
+                    <input type="password" id="contrasena" placeholder="Contraseña" name="contrasena" required minlength="8" pattern="^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#$%^&+=!]).*$" 
+                       title="La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)."/>
+                    </div>
+            <img src="./imágenes/logo.png" alt="" id="logo">
+            <div id="descripcion" data-traduccion="conectate">¡CONÉCTATE!</div>
+
+            <footer>
+                <div id="idiomas">
+                    <button id="ingles">English</button>
+                    <button id="espanol">Español</button>
+                </div>
+                <div id="comentario" data-traduccion="comentario">Sarasúa Santiago</div>
+            <div id="comentario2"  data-traduccion="comentario2" style="left: 40%;">Faustina Grande</div>
+<div id="comentario3"  data-traduccion="comentario3" style="left: 90%">Delfor Vicondo Grosso</div>
+  <div id=comentario4 data-traduccion="comentario4" style="position: absolute; top: 160%; color: white; left: 70%;">Aaron Chiastellino Gabriel Fernandez</div>            
+<div id="comentario5" data-traduccion="comentario5" style="position: absolute; top: 160%; left: 25%; color: white;">Micaela Lugo</div>
+            
+            </footer>
+
+    </main>
+
+
+    <script src="./js/santiscript.js"></script>
+</body>
+</html> 
