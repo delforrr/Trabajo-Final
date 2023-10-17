@@ -210,12 +210,13 @@ function verificarFechaLimite() {
   const fechaActual = new Date();
 
   const diferenciaDias = Math.floor(
-    (fechaSeleccionada - fechaActual) / (1000 * 60 * 60 * 24) + 1
+    (fechaSeleccionada - fechaActual) / (1000 * 60 * 60 * 24) + 2
   );
 
   let listItem = document.createElement("li");
   listItem.classList.add("list-group-item");
   listItem.innerHTML = `⛔ Tienes ${diferenciaDias} días para terminar una de tus tareas.`;
+  espacioNotificaciones.appendChild(listItem);
 }
 
 // Eventos
