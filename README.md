@@ -18,6 +18,10 @@ Notificaciones Personalizadas:
 En función de los objetivos y preferencias del usuario, la aplicación puede enviar notificaciones personalizadas para motivar a los usuarios a mantener hábitos saludables.
 ¡Esperamos que nuestra aplicación web le sea de ayuda!
 
+Como usar la aplicación:
+
+En la pantalla de registro/inicio de sesión, hacer click en "Vista Previa".
+
 Para una completa experiencia:
 
 Descargar una aplicación de servidor local (XAMPP por ej) para el uso de el sistema de Inicio de Sesión
