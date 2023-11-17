@@ -11,9 +11,6 @@ Funciones:
 Recordatorios y Alarmas:
 Recordatorios para realizar ejercicios, tomar medicamentos, beber agua y realizar otras actividades saludables a lo largo del día.
 
-Consejos y Artículos:
-La aplicación puede proporcionar artículos, blogs y consejos sobre una variedad de temas relacionados con la salud y el bienestar, como nutrición, ejercicio, salud mental y sueño.
-
 Notificaciones Personalizadas:
 En función de los objetivos y preferencias del usuario, la aplicación puede enviar notificaciones personalizadas para motivar a los usuarios a mantener hábitos saludables.
 ¡Esperamos que nuestra aplicación web le sea de ayuda!
